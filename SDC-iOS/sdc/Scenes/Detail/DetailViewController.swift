@@ -34,6 +34,20 @@ class DetailViewController: UIViewController {
         $0.textColor = .black
         $0.numberOfLines = 0
     }
+
+    private let bottomTabBar = UIView().then {
+        $0.backgroundColor = .secondarySystemBackground
+    }
+
+    private let heartButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "heart"), for: .normal)
+        $0.tintColor = .systemRed
+    }
+
+    private let commentButton = UIButton().then {
+        $0.setImage(UIImage(systemName: "bubble.left"), for: .normal)
+        $0.tintColor = .systemBlue
+    }   
     
     lazy var config = UIImage.SymbolConfiguration(paletteColors: [.gray, .systemOrange])
     lazy var black = UIImage.SymbolConfiguration(weight: .bold)
@@ -118,6 +132,10 @@ extension DetailViewController {
         
         scrollView.addSubview(scrollContentView)
         view.addSubview(scrollView)
+
+        bottomTabBar.addSubview(heartButton)
+        bottomTabBar.addSubview(commentButton)
+        view.addSubview(bottomTabBar)
     }
     
     func configureSubViews() {
@@ -144,7 +162,25 @@ extension DetailViewController {
         scrollContentView.snp.makeConstraints {
             $0.top.leading.trailing.bottom.equalToSuperview()
             $0.width.equalTo(view.frame.width)
-            $0.height.equalTo(200 + lineCount * 16)
+            $0.height.equalTo(280 + lineCount * 16)
+        }
+
+        bottomTabBar.snp.makeConstraints {
+            $0.bottom.equalTo(scrollView.snp.bottom)
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(60)
+        }
+
+        heartButton.snp.makeConstraints {
+            $0.top.equalTo(bottomTabBar.snp.top).offset(10)
+            $0.leading.equalTo(bottomTabBar.snp.leading).offset(30)
+            $0.width.height.equalTo(30)
+        }
+
+        commentButton.snp.makeConstraints {
+            $0.top.equalTo(bottomTabBar.snp.top).offset(10)
+            $0.leading.equalTo(heartButton.snp.trailing).offset(10)
+            $0.width.height.equalTo(30)
         }
     }
 }
@@ -180,6 +216,13 @@ extension DetailViewController {
                 self.viewModel.deletePost(postId)
                 self.navigationController?.popViewController(animated: true)
             }
+        }.disposed(by: bag)
+
+        commentButton.rx.tap.bind { [weak self] in
+            guard let self = self else { return }
+            guard let postId = self.postId else { return }
+            let commentVC = CommentViewController(postId: postId)
+            self.navigationController?.pushViewController(commentVC, animated: true)
         }.disposed(by: bag)
     }
     
