@@ -81,12 +81,7 @@ class HomeTableViewCell: UITableViewCell {
         title.text = model.title
         content.text = model.content
         blogTitle.text = "블로그 제목"
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy.MM.dd"
-        let date = Date(timeIntervalSince1970: TimeInterval(model.createdAt ?? 0))
-        let strDate = dateFormatter.string(from: date)
-        createdAt.text = strDate
+        createdAt.text = Date.getDateStringFromTimestamp(model.createdAt ?? 0)
         
     }
 }
