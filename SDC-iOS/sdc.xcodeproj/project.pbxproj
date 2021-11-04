@@ -70,6 +70,12 @@
 		EAAEB08E2734702F00FDE30C /* UpdatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB08D2734702F00FDE30C /* UpdatePostService.swift */; };
 		EAF4FD672734756300F32D9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAAEAFED2730B9E700FDE30C /* Assets.xcassets */; };
 		EAF4FD692734760500F32D9D /* ModelUpdatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4FD682734760500F32D9D /* ModelUpdatePost.swift */; };
+		EAF4FD6C273483D300F32D9D /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4FD6B273483D300F32D9D /* CommentViewController.swift */; };
+		EAF4FD6E273483DB00F32D9D /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4FD6D273483DB00F32D9D /* CommentViewModel.swift */; };
+		EAF4FD70273486B100F32D9D /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4FD6F273486B100F32D9D /* CommentTableCell.swift */; };
+		EAF4FD72273487F800F32D9D /* ModelComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4FD71273487F800F32D9D /* ModelComment.swift */; };
+		EAF4FD7427348A4E00F32D9D /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4FD7327348A4E00F32D9D /* CommentService.swift */; };
+		EAF4FD77273493A900F32D9D /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = EAF4FD76273493A900F32D9D /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +135,11 @@
 		EAAEB08B273468DD00FDE30C /* UpdatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostViewModel.swift; sourceTree = "<group>"; };
 		EAAEB08D2734702F00FDE30C /* UpdatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostService.swift; sourceTree = "<group>"; };
 		EAF4FD682734760500F32D9D /* ModelUpdatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUpdatePost.swift; sourceTree = "<group>"; };
+		EAF4FD6B273483D300F32D9D /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		EAF4FD6D273483DB00F32D9D /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		EAF4FD6F273486B100F32D9D /* CommentTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableCell.swift; sourceTree = "<group>"; };
+		EAF4FD71273487F800F32D9D /* ModelComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelComment.swift; sourceTree = "<group>"; };
+		EAF4FD7327348A4E00F32D9D /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +152,7 @@
 				EAAEB0142730FC3D00FDE30C /* RxRelay in Frameworks */,
 				EAAEB00F2730FBFE00FDE30C /* SnapKit in Frameworks */,
 				EAAEB00C2730FBE700FDE30C /* Kingfisher in Frameworks */,
+				EAF4FD77273493A900F32D9D /* IQKeyboardManagerSwift in Frameworks */,
 				EAAEB0122730FC3D00FDE30C /* RxCocoa in Frameworks */,
 				EAAEB0092730FBD400FDE30C /* Then in Frameworks */,
 				EAAEB023273115E300FDE30C /* SwiftKeychainWrapper in Frameworks */,
@@ -202,6 +214,7 @@
 		EAAEAFFA2730EFD500FDE30C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EAF4FD6A273483C400F32D9D /* Comment */,
 				EAAEB086273468B900FDE30C /* UpdatePost */,
 				EAAEB05927339F7600FDE30C /* Root */,
 				EAAEB01A2731081A00FDE30C /* Splash */,
@@ -354,6 +367,7 @@
 				EAAEB075273437D600FDE30C /* SignInService.swift */,
 				EAAEB07C27343EF200FDE30C /* NewPostService.swift */,
 				EAAEB08D2734702F00FDE30C /* UpdatePostService.swift */,
+				EAF4FD7327348A4E00F32D9D /* CommentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -392,6 +406,7 @@
 				EAAEB07E27343F0D00FDE30C /* ModelNewPost.swift */,
 				EAAEB0842734626600FDE30C /* ModelDeletePost.swift */,
 				EAF4FD682734760500F32D9D /* ModelUpdatePost.swift */,
+				EAF4FD71273487F800F32D9D /* ModelComment.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -403,6 +418,16 @@
 				EAAEB08B273468DD00FDE30C /* UpdatePostViewModel.swift */,
 			);
 			path = UpdatePost;
+			sourceTree = "<group>";
+		};
+		EAF4FD6A273483C400F32D9D /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				EAF4FD6F273486B100F32D9D /* CommentTableCell.swift */,
+				EAF4FD6B273483D300F32D9D /* CommentViewController.swift */,
+				EAF4FD6D273483DB00F32D9D /* CommentViewModel.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -431,6 +456,7 @@
 				EAAEB0182730FC7E00FDE30C /* RxGesture */,
 				EAAEB022273115E300FDE30C /* SwiftKeychainWrapper */,
 				EAAEB0252731434100FDE30C /* Alamofire */,
+				EAF4FD76273493A900F32D9D /* IQKeyboardManagerSwift */,
 			);
 			productName = sdc;
 			productReference = EAAEAFE12730B9E400FDE30C /* sdc.app */;
@@ -468,6 +494,7 @@
 				EAAEB0172730FC7E00FDE30C /* XCRemoteSwiftPackageReference "RxGesture" */,
 				EAAEB021273115E300FDE30C /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				EAAEB0242731434100FDE30C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				EAF4FD75273493A900F32D9D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = EAAEAFE22730B9E400FDE30C /* Products */;
 			projectDirPath = "";
@@ -496,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF4FD6C273483D300F32D9D /* CommentViewController.swift in Sources */,
 				EAAEB08C273468DD00FDE30C /* UpdatePostViewModel.swift in Sources */,
 				EAAEB020273111C700FDE30C /* HomeViewController.swift in Sources */,
 				EAAEB08A273468D300FDE30C /* UpdatePostViewController.swift in Sources */,
@@ -521,10 +549,14 @@
 				EAAEB0432732548900FDE30C /* APIResponse.swift in Sources */,
 				EAAEB0742734240900FDE30C /* SignInViewModel.swift in Sources */,
 				EAAEB049273258DD00FDE30C /* ModelVerify.swift in Sources */,
+				EAF4FD72273487F800F32D9D /* ModelComment.swift in Sources */,
+				EAF4FD7427348A4E00F32D9D /* CommentService.swift in Sources */,
 				EAAEB083273457F400FDE30C /* User.swift in Sources */,
 				EAAEB07F27343F0D00FDE30C /* ModelNewPost.swift in Sources */,
+				EAF4FD70273486B100F32D9D /* CommentTableCell.swift in Sources */,
 				EAAEB05F2733ACF000FDE30C /* DetailViewModel.swift in Sources */,
 				EAAEB03C2732438800FDE30C /* APIResult.swift in Sources */,
+				EAF4FD6E273483DB00F32D9D /* CommentViewModel.swift in Sources */,
 				EAF4FD692734760500F32D9D /* ModelUpdatePost.swift in Sources */,
 				EAAEAFE52730B9E400FDE30C /* AppDelegate.swift in Sources */,
 				EAAEB0682733BFAC00FDE30C /* Date+Ext.swift in Sources */,
@@ -826,6 +858,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		EAF4FD75273493A900F32D9D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -873,6 +913,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EAAEB0242731434100FDE30C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		EAF4FD76273493A900F32D9D /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EAF4FD75273493A900F32D9D /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
