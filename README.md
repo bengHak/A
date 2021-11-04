@@ -1,9 +1,6 @@
 # Blog
 Stove Dev Camp 과제
 
-```
-
-```
 
 ## 기술 스택
 
@@ -20,8 +17,19 @@ Stove Dev Camp 과제
 - 게시글 조회
 - 댓글 조회, 작성, 삭제
 
+## 뷰 구성
+
+<span>
+<img src="https://user-images.githubusercontent.com/41236155/140435436-9c27ebcd-a238-4b31-abe3-ecd2bbb982f6.png" width="30%" />
+<img src="https://user-images.githubusercontent.com/41236155/140435443-dc3277cd-bc7c-4583-9177-4f0483e5837f.png" width="30%" />
+<img src="https://user-images.githubusercontent.com/41236155/140435480-5a00388f-b523-4b04-825e-b54a9f1193df.png" width="30%" />
+<img src="https://user-images.githubusercontent.com/41236155/140435503-5f39d351-422a-4eed-aa02-ae7a196ff67e.png" width="30%" />
+<img src="https://user-images.githubusercontent.com/41236155/140435534-b2e22599-981c-43c8-bafb-e598697e2ece.png" width="30%" />
+<img src="https://user-images.githubusercontent.com/41236155/140435566-c5bf9401-09c4-4e79-b089-e7ab7477fb85.png" width="30%" />
+</span>
 
 ## 뷰 구성(영상)
+
 
 |제목|예시1|예시2|
 |-----|:---:|:---:|
