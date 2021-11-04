@@ -57,6 +57,7 @@ extension HomeViewModel: HomeService {
                 
                 guard let response = result.response,
                       let data = response.data else {
+                          print("🔴 fetching feeds failed")
                           return
                       }
                 
