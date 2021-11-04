@@ -86,6 +86,9 @@ extension HomeViewController {
         tableView = UITableView()
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
         tableView.delegate = self
+        tableView.refreshControl = UIRefreshControl()
+        
+        
         view.addSubview(tableView)
         
         
@@ -192,6 +195,16 @@ extension HomeViewController {
                 }
             })
             .disposed(by: bag)
+        
+        tableView.refreshControl?
+            .rx
+            .controlEvent(.valueChanged)
+            .subscribe(onNext: { [weak self] _ in
+                self?.viewModel.fetchFeeds(refresh: true, loadMore: false)
+                self?.tableView.refreshControl?.endRefreshing()
+            })
+            .disposed(by: bag)
+
     }
 }
 

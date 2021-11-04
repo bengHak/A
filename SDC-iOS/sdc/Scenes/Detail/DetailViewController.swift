@@ -48,7 +48,7 @@ class DetailViewController: UIViewController {
                                           primaryAction: nil,
                                           menu: nil)
     
-    
+
     // MARK: - Properties
     var bag = DisposeBag()
     
