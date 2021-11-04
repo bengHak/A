@@ -110,8 +110,12 @@ extension HomeViewController {
         tableView
             .rx
             .modelSelected(ModelFeed.self)
-            .subscribe(onNext: { model in
-//                print(model)
+            .subscribe(onNext: { [weak self] model in
+                DispatchQueue.main.async {
+                    let detailVC = DetailViewController()
+                    detailVC.postId = model.id
+                    self?.navigationController?.pushViewController(detailVC, animated: true)
+                }
             })
             .disposed(by: bag)
     }

@@ -49,6 +49,11 @@
 		EAAEB05B27339F8200FDE30C /* RootNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB05A27339F8200FDE30C /* RootNavigationController.swift */; };
 		EAAEB05D2733ACE800FDE30C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB05C2733ACE800FDE30C /* DetailViewController.swift */; };
 		EAAEB05F2733ACF000FDE30C /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB05E2733ACF000FDE30C /* DetailViewModel.swift */; };
+		EAAEB0612733B33800FDE30C /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0602733B33800FDE30C /* DetailService.swift */; };
+		EAAEB0632733B36000FDE30C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0622733B36000FDE30C /* Post.swift */; };
+		EAAEB0662733B5B900FDE30C /* ModelPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0652733B5B900FDE30C /* ModelPost.swift */; };
+		EAAEB0682733BFAC00FDE30C /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0672733BFAC00FDE30C /* Date+Ext.swift */; };
+		EAAEB06C273410A800FDE30C /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB06B273410A800FDE30C /* UILabel+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +92,11 @@
 		EAAEB05A27339F8200FDE30C /* RootNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationController.swift; sourceTree = "<group>"; };
 		EAAEB05C2733ACE800FDE30C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		EAAEB05E2733ACF000FDE30C /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		EAAEB0602733B33800FDE30C /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
+		EAAEB0622733B36000FDE30C /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		EAAEB0652733B5B900FDE30C /* ModelPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPost.swift; sourceTree = "<group>"; };
+		EAAEB0672733BFAC00FDE30C /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		EAAEB06B273410A800FDE30C /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +188,7 @@
 				EAAEB0422732548900FDE30C /* APIResponse.swift */,
 				EAAEB0412732547500FDE30C /* Auth */,
 				EAAEB0522732697900FDE30C /* Feed */,
+				EAAEB0642733B5AB00FDE30C /* Post */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,9 +208,9 @@
 		EAAEAFFD2730F00600FDE30C /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				EAAEB0572733818700FDE30C /* HomeTableViewCell.swift */,
 				EAAEB01F273111C700FDE30C /* HomeViewController.swift */,
 				EAAEB04E273267F500FDE30C /* HomeViewModel.swift */,
-				EAAEB0572733818700FDE30C /* HomeTableViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -260,6 +271,7 @@
 				EAAEB0292731472200FDE30C /* BaseEndpoint.swift */,
 				EAAEB027273144B100FDE30C /* Auth.swift */,
 				EAAEB0552732721800FDE30C /* Home.swift */,
+				EAAEB0622733B36000FDE30C /* Post.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -277,6 +289,8 @@
 				EAAEB03F2732531300FDE30C /* KeychainWrapper+Ext.swift */,
 				EAAEB04A27325A7600FDE30C /* URLRequest+Ext.swift */,
 				EAAEB04C27325BA700FDE30C /* Encodable+Ext.swift */,
+				EAAEB0672733BFAC00FDE30C /* Date+Ext.swift */,
+				EAAEB06B273410A800FDE30C /* UILabel+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +310,7 @@
 				EAAEB0372732418B00FDE30C /* BaseService.swift */,
 				EAAEB039273241D100FDE30C /* AuthService.swift */,
 				EAAEB050273268AF00FDE30C /* HomeService.swift */,
+				EAAEB0602733B33800FDE30C /* DetailService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -324,6 +339,14 @@
 				EAAEB05A27339F8200FDE30C /* RootNavigationController.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		EAAEB0642733B5AB00FDE30C /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEB0652733B5B900FDE30C /* ModelPost.swift */,
+			);
+			path = Post;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -420,6 +443,7 @@
 				EAAEB020273111C700FDE30C /* HomeViewController.swift in Sources */,
 				EAAEB02A2731472200FDE30C /* BaseEndpoint.swift in Sources */,
 				EAAEB01E27310B7800FDE30C /* SplashViewModel.swift in Sources */,
+				EAAEB0612733B33800FDE30C /* DetailService.swift in Sources */,
 				EAAEB04D27325BA700FDE30C /* Encodable+Ext.swift in Sources */,
 				EAAEB0542732699000FDE30C /* ModelFeed.swift in Sources */,
 				EAAEB05B27339F8200FDE30C /* RootNavigationController.swift in Sources */,
@@ -427,12 +451,15 @@
 				EAAEB04F273267F500FDE30C /* HomeViewModel.swift in Sources */,
 				EAAEB051273268AF00FDE30C /* HomeService.swift in Sources */,
 				EAAEB05D2733ACE800FDE30C /* DetailViewController.swift in Sources */,
+				EAAEB0662733B5B900FDE30C /* ModelPost.swift in Sources */,
+				EAAEB0632733B36000FDE30C /* Post.swift in Sources */,
 				EAAEB02E273148ED00FDE30C /* HTTPMethod.swift in Sources */,
 				EAAEB0432732548900FDE30C /* APIResponse.swift in Sources */,
 				EAAEB049273258DD00FDE30C /* ModelVerify.swift in Sources */,
 				EAAEB05F2733ACF000FDE30C /* DetailViewModel.swift in Sources */,
 				EAAEB03C2732438800FDE30C /* APIResult.swift in Sources */,
 				EAAEAFE52730B9E400FDE30C /* AppDelegate.swift in Sources */,
+				EAAEB0682733BFAC00FDE30C /* Date+Ext.swift in Sources */,
 				EAAEB0472732562D00FDE30C /* ModelSignIn.swift in Sources */,
 				EAAEB03A273241D100FDE30C /* AuthService.swift in Sources */,
 				EAAEB0582733818700FDE30C /* HomeTableViewCell.swift in Sources */,
@@ -447,6 +474,7 @@
 				EAAEB04B27325A7600FDE30C /* URLRequest+Ext.swift in Sources */,
 				EAAEB028273144B100FDE30C /* Auth.swift in Sources */,
 				EAAEB0562732721800FDE30C /* Home.swift in Sources */,
+				EAAEB06C273410A800FDE30C /* UILabel+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
