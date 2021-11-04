@@ -7,6 +7,16 @@
 
 import Foundation
 
+struct ModelWriteCommentRequest: Codable {
+    var content: String?
+}
+
+struct ModelWriteCommentResponse: APIResponse {
+    var success: Bool?
+    var msg: String?
+    var data: String?
+}
+
 struct ModelCommentsResponse: APIResponse {
     var success: Bool?
     var msg: String?

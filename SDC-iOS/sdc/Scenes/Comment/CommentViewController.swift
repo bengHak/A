@@ -105,9 +105,23 @@ extension CommentViewController {
 // MARK: - BindableViewController
 extension CommentViewController {
     func bindRx() {
-        
+        bindTextField()        
         bindTableView()
         bindViewModel()
+    }
+    
+    private func bindTextField() {
+        commentTextField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe(onNext: { [weak self] in
+                guard let self = self else { return }
+                guard let postId = self.postId,
+                      let commentText = self.commentTextField.text  else { 
+                          return 
+                      }
+                self.viewModel.newComment(postId, comment: commentText)
+                self.commentTextField.text = ""
+            })
+            .disposed(by: bag)
     }
     
     private func bindTableView() {
@@ -135,7 +149,14 @@ extension CommentViewController {
     }
     
     private func bindViewModel() {
-
+        viewModel.dependency.isWritingDone
+            .subscribe(onNext: { [weak self] isDone in
+                guard let self = self else { return }
+                if isDone {
+                    self.viewModel.fetchComments(self.postId!)
+                }
+            })
+            .disposed(by: bag)
     }
 }
 
