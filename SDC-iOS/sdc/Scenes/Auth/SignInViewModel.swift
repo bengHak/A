@@ -62,7 +62,8 @@ extension SignInViewModel: SignInService {
                           return
                       }
                 
-                KeychainWrapper.standard[.authToken] = data
+                KeychainWrapper.standard[.authToken] = data.token
+                UserDefaults.standard.set(data.id, forKey: "userId")
                 self.dependency.isSignedIn.accept(true)
             })
             .disposed(by: bag)

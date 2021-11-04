@@ -65,6 +65,7 @@
 		EAAEB07F27343F0D00FDE30C /* ModelNewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB07E27343F0D00FDE30C /* ModelNewPost.swift */; };
 		EAAEB0812734579B00FDE30C /* ModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0802734579A00FDE30C /* ModelUser.swift */; };
 		EAAEB083273457F400FDE30C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB082273457F400FDE30C /* User.swift */; };
+		EAAEB0852734626600FDE30C /* ModelDeletePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0842734626600FDE30C /* ModelDeletePost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		EAAEB07E27343F0D00FDE30C /* ModelNewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelNewPost.swift; sourceTree = "<group>"; };
 		EAAEB0802734579A00FDE30C /* ModelUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUser.swift; sourceTree = "<group>"; };
 		EAAEB082273457F400FDE30C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EAAEB0842734626600FDE30C /* ModelDeletePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletePost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -378,6 +380,7 @@
 			children = (
 				EAAEB0652733B5B900FDE30C /* ModelPost.swift */,
 				EAAEB07E27343F0D00FDE30C /* ModelNewPost.swift */,
+				EAAEB0842734626600FDE30C /* ModelDeletePost.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				EAAEB05B27339F8200FDE30C /* RootNavigationController.swift in Sources */,
 				EAAEB01C27310AC800FDE30C /* SplashViewController.swift in Sources */,
 				EAAEB04F273267F500FDE30C /* HomeViewModel.swift in Sources */,
+				EAAEB0852734626600FDE30C /* ModelDeletePost.swift in Sources */,
 				EAAEB051273268AF00FDE30C /* HomeService.swift in Sources */,
 				EAAEB05D2733ACE800FDE30C /* DetailViewController.swift in Sources */,
 				EAAEB0662733B5B900FDE30C /* ModelPost.swift in Sources */,

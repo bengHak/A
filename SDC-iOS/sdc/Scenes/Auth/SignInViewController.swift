@@ -21,6 +21,9 @@ class SignInViewController: UIViewController {
     
     private let emailTextView = UITextField().then {
         $0.placeholder = "이메일을 입력해주세요"
+        $0.autocorrectionType = .no
+        $0.autocapitalizationType = .none
+        $0.spellCheckingType = .no
         $0.keyboardType = .emailAddress
     }
     
