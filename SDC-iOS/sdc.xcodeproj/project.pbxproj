@@ -54,6 +54,11 @@
 		EAAEB0662733B5B900FDE30C /* ModelPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0652733B5B900FDE30C /* ModelPost.swift */; };
 		EAAEB0682733BFAC00FDE30C /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0672733BFAC00FDE30C /* Date+Ext.swift */; };
 		EAAEB06C273410A800FDE30C /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB06B273410A800FDE30C /* UILabel+Ext.swift */; };
+		EAAEB06E273423ED00FDE30C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB06D273423ED00FDE30C /* SignUpViewController.swift */; };
+		EAAEB070273423F700FDE30C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB06F273423F700FDE30C /* SignUpViewModel.swift */; };
+		EAAEB0722734240000FDE30C /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0712734240000FDE30C /* SignInViewController.swift */; };
+		EAAEB0742734240900FDE30C /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0732734240900FDE30C /* SignInViewModel.swift */; };
+		EAAEB076273437D600FDE30C /* SignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB075273437D600FDE30C /* SignInService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +102,11 @@
 		EAAEB0652733B5B900FDE30C /* ModelPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPost.swift; sourceTree = "<group>"; };
 		EAAEB0672733BFAC00FDE30C /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		EAAEB06B273410A800FDE30C /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		EAAEB06D273423ED00FDE30C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		EAAEB06F273423F700FDE30C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		EAAEB0712734240000FDE30C /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		EAAEB0732734240900FDE30C /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		EAAEB075273437D600FDE30C /* SignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +228,10 @@
 		EAAEAFFE2730F02200FDE30C /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				EAAEB06D273423ED00FDE30C /* SignUpViewController.swift */,
+				EAAEB06F273423F700FDE30C /* SignUpViewModel.swift */,
+				EAAEB0712734240000FDE30C /* SignInViewController.swift */,
+				EAAEB0732734240900FDE30C /* SignInViewModel.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -311,6 +325,7 @@
 				EAAEB039273241D100FDE30C /* AuthService.swift */,
 				EAAEB050273268AF00FDE30C /* HomeService.swift */,
 				EAAEB0602733B33800FDE30C /* DetailService.swift */,
+				EAAEB075273437D600FDE30C /* SignInService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -443,9 +458,11 @@
 				EAAEB020273111C700FDE30C /* HomeViewController.swift in Sources */,
 				EAAEB02A2731472200FDE30C /* BaseEndpoint.swift in Sources */,
 				EAAEB01E27310B7800FDE30C /* SplashViewModel.swift in Sources */,
+				EAAEB070273423F700FDE30C /* SignUpViewModel.swift in Sources */,
 				EAAEB0612733B33800FDE30C /* DetailService.swift in Sources */,
 				EAAEB04D27325BA700FDE30C /* Encodable+Ext.swift in Sources */,
 				EAAEB0542732699000FDE30C /* ModelFeed.swift in Sources */,
+				EAAEB06E273423ED00FDE30C /* SignUpViewController.swift in Sources */,
 				EAAEB05B27339F8200FDE30C /* RootNavigationController.swift in Sources */,
 				EAAEB01C27310AC800FDE30C /* SplashViewController.swift in Sources */,
 				EAAEB04F273267F500FDE30C /* HomeViewModel.swift in Sources */,
@@ -453,8 +470,10 @@
 				EAAEB05D2733ACE800FDE30C /* DetailViewController.swift in Sources */,
 				EAAEB0662733B5B900FDE30C /* ModelPost.swift in Sources */,
 				EAAEB0632733B36000FDE30C /* Post.swift in Sources */,
+				EAAEB076273437D600FDE30C /* SignInService.swift in Sources */,
 				EAAEB02E273148ED00FDE30C /* HTTPMethod.swift in Sources */,
 				EAAEB0432732548900FDE30C /* APIResponse.swift in Sources */,
+				EAAEB0742734240900FDE30C /* SignInViewModel.swift in Sources */,
 				EAAEB049273258DD00FDE30C /* ModelVerify.swift in Sources */,
 				EAAEB05F2733ACF000FDE30C /* DetailViewModel.swift in Sources */,
 				EAAEB03C2732438800FDE30C /* APIResult.swift in Sources */,
@@ -466,6 +485,7 @@
 				EAAEB0452732562100FDE30C /* ModelSignUp.swift in Sources */,
 				EAAEB03E273243E400FDE30C /* APIError.swift in Sources */,
 				EAAEB033273157D700FDE30C /* APIService.swift in Sources */,
+				EAAEB0722734240000FDE30C /* SignInViewController.swift in Sources */,
 				EAAEB0302731491800FDE30C /* APIHeader.swift in Sources */,
 				EAAEB0382732418B00FDE30C /* BaseService.swift in Sources */,
 				EAAEB0352732415400FDE30C /* APISession.swift in Sources */,
