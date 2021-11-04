@@ -36,8 +36,10 @@ class SplashViewController: UIViewController {
     
     // MARK: - Helpers
     
-    private func move2Home() {
-        let rootVC = HomeViewController()
+    private func move2Root() {
+        let rootVC = RootNavigationController()
+        
+        setNeedsStatusBarAppearanceUpdate()
         view.window?.rootViewController = rootVC
         view.window?.makeKeyAndVisible()
     }
@@ -84,11 +86,12 @@ extension SplashViewController {
         viewModel.output.isAuthenticated
             .subscribe(onNext: {[weak self] result in
                 self?.spinner.stopAnimating()
-                if result == true {
-                    self?.move2Home()
-                } else {
-                    print("로그인 필요")
-                }
+                self?.move2Root()
+//                if result == true {
+//                    self?.move2Home()
+//                } else {
+//                    print("로그인 필요")
+//                }
             })
             .disposed(by: bag)
     }

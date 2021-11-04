@@ -11,7 +11,7 @@ import RxSwift
 
 struct APISession: APIService {
     
-    func request<T: Decodable> (with request: URLRequest) -> Observable<APIResult<T>> {
+    func request<T: Codable> (with request: URLRequest) -> Observable<APIResult<T>> {
         return Observable<APIResult<T>>.create { observer in
             
             let request = AF.request(request)
@@ -31,7 +31,7 @@ struct APISession: APIService {
     
     
     /// 응답 핸들러
-    private func handleResponse<T: Decodable> (request: DataRequest,
+    private func handleResponse<T: Codable> (request: DataRequest,
                                               response:  AFDataResponse<Any>,
                                               observer: AnyObserver<APIResult<T>>) {
         
@@ -50,6 +50,8 @@ struct APISession: APIService {
         }
         
         let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        
         guard let decodedData = try? decoder.decode(T.self, from: data) else {
             // 디코딩 오류
             let result = APIResult<T>(error: .decodingError, response: nil)

@@ -43,4 +43,30 @@ extension URLRequest {
         
         return request
     }
+    
+    static func build(url: URL,
+                      method: HTTPMethod = .get,
+                      body: [String: Any?] = [:],
+                      headers: [String: String?] = URLRequest.defaultHeader) -> URLRequest {
+        
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = method.rawValue
+        request.jsonRequest()
+        
+        if !body.isEmpty {
+            let data = try? JSONSerialization.data(withJSONObject: body, options: [])
+            request.httpBody = data
+        }
+        
+        if !headers.isEmpty {
+            headers.forEach { key, value in
+                
+                request.setValue(value, forHTTPHeaderField: key)
+                
+            }
+        }
+        
+        return request
+    }
 }
