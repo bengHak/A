@@ -7,9 +7,9 @@
 
 import Foundation
 
-protocol APIResponse: Decodable {
+protocol APIResponse: Codable {
     
-    associatedtype DataType: Decodable
+    associatedtype DataType: Codable
     
     var success: Bool? { get }
     var msg: String? { get }

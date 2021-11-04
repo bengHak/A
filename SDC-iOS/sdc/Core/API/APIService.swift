@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol APIService {
-    func request<T: Decodable>(with request: URLRequest) -> Observable<APIResult<T>>
+    func request<T: Codable>(with request: URLRequest) -> Observable<APIResult<T>>
 }
