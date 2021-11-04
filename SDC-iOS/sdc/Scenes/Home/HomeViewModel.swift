@@ -65,9 +65,13 @@ extension HomeViewModel: HomeService {
                           return
                       }
                 
-                let oldVal = self.output.feeds.value ?? []
-                let newVal = oldVal + data
-                self.output.feeds.accept(newVal)
+                if refresh {
+                    self.output.feeds.accept(data)
+                } else {
+                    let oldVal = self.output.feeds.value ?? []
+                    let newVal = oldVal + data
+                    self.output.feeds.accept(newVal)
+                }
                 
             })
             .disposed(by: bag)

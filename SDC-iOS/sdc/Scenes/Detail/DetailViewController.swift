@@ -35,7 +35,20 @@ class DetailViewController: UIViewController {
         $0.numberOfLines = 0
     }
     
+    lazy var config = UIImage.SymbolConfiguration(paletteColors: [.gray, .systemOrange])
+    lazy var black = UIImage.SymbolConfiguration(weight: .bold)
+    lazy var combined = config.applying(black)
     
+    lazy var updateButton = UIBarButtonItem(title: "",
+                                           image: UIImage(systemName: "pencil.and.outline", withConfiguration: combined),
+                                           primaryAction: nil,
+                                           menu: nil)
+    lazy var deleteButton = UIBarButtonItem(title: "",
+                                          image: UIImage(systemName: "trash.slash.fill", withConfiguration: combined),
+                                          primaryAction: nil,
+                                          menu: nil)
+    
+
     // MARK: - Properties
     var bag = DisposeBag()
     
@@ -69,6 +82,17 @@ class DetailViewController: UIViewController {
         }
     }
     // MARK: - Helpers
+    func deleteAlert(completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: "삭제하시겠습니까?", message: nil, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "삭제", style: .destructive) { _ in
+            completion()
+        }
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+
     func adjustScrollContentView() {
         scrollContentView.snp.updateConstraints {
             $0.height.equalTo(120 + lineCount * (lineSpacingValue + 18))
@@ -129,7 +153,34 @@ extension DetailViewController {
 extension DetailViewController {
     
     func bindRx() {
+        bindButtons()
         bindViewModel()
+    }
+
+    private func bindButtons() {
+        updateButton.rx.tap.bind { [weak self] _ in
+            guard let self = self else { return }
+            guard let title = self.title,
+                  let content = self.contentView.text,
+                  let postId = self.postId else {
+                      return
+                  }
+            
+            DispatchQueue.main.async {
+                let updateVC = UpdatePostViewController(postId: postId, title: title, content: content)
+                let navVC = UINavigationController(rootViewController: updateVC)
+                self.navigationController?.present(navVC, animated: true)
+            }
+        }.disposed(by: bag)
+        
+        deleteButton.rx.tap.bind { [weak self] in
+            guard let self = self else { return }
+            guard let postId = self.postId else { return }
+            self.deleteAlert {
+                self.viewModel.deletePost(postId)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }.disposed(by: bag)
     }
     
     private func bindViewModel() {
@@ -144,10 +195,29 @@ extension DetailViewController {
                 
                 DispatchQueue.main.async {
                     self.title = post.title
-                    self.usernameLabel.text = "유저네임"
+                    self.usernameLabel.text = "..."
                     self.dateLabel.text = Date.getDateStringFromTimestamp(post.createdAt ?? 0)
                     self.contentView.text = post.content
                     self.contentView.addInterlineSpacing(spacingValue: CGFloat(self.lineSpacingValue))
+                }
+            })
+            .disposed(by: bag)
+        
+        viewModel.output.writer
+            .subscribe(onNext: { [weak self] userData in
+                guard let self = self else { return }
+                
+                guard let userData = userData else {
+                    print("🔴 user data is nil")
+                    return
+                }
+                
+                self.usernameLabel.text = userData.username
+                
+                if UserDefaults.standard.integer(forKey: "userId") == userData.id {
+                    self.navigationItem.rightBarButtonItems = [self.deleteButton, self.updateButton]
+                } else {
+                    self.navigationItem.rightBarButtonItems = []
                 }
             })
             .disposed(by: bag)

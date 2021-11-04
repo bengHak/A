@@ -22,5 +22,10 @@ extension ModelSignInRequest {
 struct ModelSignInResponse: APIResponse {
     var success: Bool?
     var msg: String?
-    var data: String?
+    var data: ModelTokenResponse?
+}
+
+struct ModelTokenResponse: Codable {
+    var token: String?
+    var id: Int?
 }
