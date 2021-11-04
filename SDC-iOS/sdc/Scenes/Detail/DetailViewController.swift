@@ -158,10 +158,19 @@ extension DetailViewController {
     }
 
     private func bindButtons() {
-        updateButton.rx.tap.bind { [weak self] in
-            print("update")
-//            guard let self = self else { return }
-            // update post VC로 이동
+        updateButton.rx.tap.bind { [weak self] _ in
+            guard let self = self else { return }
+            guard let title = self.title,
+                  let content = self.contentView.text,
+                  let postId = self.postId else {
+                      return
+                  }
+            
+            DispatchQueue.main.async {
+                let updateVC = UpdatePostViewController(postId: postId, title: title, content: content)
+                let navVC = UINavigationController(rootViewController: updateVC)
+                self.navigationController?.present(navVC, animated: true)
+            }
         }.disposed(by: bag)
         
         deleteButton.rx.tap.bind { [weak self] in

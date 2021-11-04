@@ -10,7 +10,6 @@
 		EAAEAFE52730B9E400FDE30C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEAFE42730B9E400FDE30C /* AppDelegate.swift */; };
 		EAAEAFE72730B9E400FDE30C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEAFE62730B9E400FDE30C /* SceneDelegate.swift */; };
 		EAAEAFEC2730B9E400FDE30C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAAEAFEA2730B9E400FDE30C /* Main.storyboard */; };
-		EAAEAFEE2730B9E700FDE30C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAAEAFED2730B9E700FDE30C /* Assets.xcassets */; };
 		EAAEAFF12730B9E700FDE30C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAAEAFEF2730B9E700FDE30C /* LaunchScreen.storyboard */; };
 		EAAEB0092730FBD400FDE30C /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = EAAEB0082730FBD400FDE30C /* Then */; };
 		EAAEB00C2730FBE700FDE30C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EAAEB00B2730FBE700FDE30C /* Kingfisher */; };
@@ -66,6 +65,11 @@
 		EAAEB0812734579B00FDE30C /* ModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0802734579A00FDE30C /* ModelUser.swift */; };
 		EAAEB083273457F400FDE30C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB082273457F400FDE30C /* User.swift */; };
 		EAAEB0852734626600FDE30C /* ModelDeletePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB0842734626600FDE30C /* ModelDeletePost.swift */; };
+		EAAEB08A273468D300FDE30C /* UpdatePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB089273468D300FDE30C /* UpdatePostViewController.swift */; };
+		EAAEB08C273468DD00FDE30C /* UpdatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB08B273468DD00FDE30C /* UpdatePostViewModel.swift */; };
+		EAAEB08E2734702F00FDE30C /* UpdatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEB08D2734702F00FDE30C /* UpdatePostService.swift */; };
+		EAF4FD672734756300F32D9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAAEAFED2730B9E700FDE30C /* Assets.xcassets */; };
+		EAF4FD692734760500F32D9D /* ModelUpdatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF4FD682734760500F32D9D /* ModelUpdatePost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +125,10 @@
 		EAAEB0802734579A00FDE30C /* ModelUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUser.swift; sourceTree = "<group>"; };
 		EAAEB082273457F400FDE30C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EAAEB0842734626600FDE30C /* ModelDeletePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelDeletePost.swift; sourceTree = "<group>"; };
+		EAAEB089273468D300FDE30C /* UpdatePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostViewController.swift; sourceTree = "<group>"; };
+		EAAEB08B273468DD00FDE30C /* UpdatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostViewModel.swift; sourceTree = "<group>"; };
+		EAAEB08D2734702F00FDE30C /* UpdatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePostService.swift; sourceTree = "<group>"; };
+		EAF4FD682734760500F32D9D /* ModelUpdatePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelUpdatePost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +202,7 @@
 		EAAEAFFA2730EFD500FDE30C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EAAEB086273468B900FDE30C /* UpdatePost */,
 				EAAEB05927339F7600FDE30C /* Root */,
 				EAAEB01A2731081A00FDE30C /* Splash */,
 				EAAEB0022730F04E00FDE30C /* Search */,
@@ -344,6 +353,7 @@
 				EAAEB0602733B33800FDE30C /* DetailService.swift */,
 				EAAEB075273437D600FDE30C /* SignInService.swift */,
 				EAAEB07C27343EF200FDE30C /* NewPostService.swift */,
+				EAAEB08D2734702F00FDE30C /* UpdatePostService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -381,8 +391,18 @@
 				EAAEB0652733B5B900FDE30C /* ModelPost.swift */,
 				EAAEB07E27343F0D00FDE30C /* ModelNewPost.swift */,
 				EAAEB0842734626600FDE30C /* ModelDeletePost.swift */,
+				EAF4FD682734760500F32D9D /* ModelUpdatePost.swift */,
 			);
 			path = Post;
+			sourceTree = "<group>";
+		};
+		EAAEB086273468B900FDE30C /* UpdatePost */ = {
+			isa = PBXGroup;
+			children = (
+				EAAEB089273468D300FDE30C /* UpdatePostViewController.swift */,
+				EAAEB08B273468DD00FDE30C /* UpdatePostViewModel.swift */,
+			);
+			path = UpdatePost;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -463,8 +483,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAF4FD672734756300F32D9D /* Assets.xcassets in Resources */,
 				EAAEAFF12730B9E700FDE30C /* LaunchScreen.storyboard in Resources */,
-				EAAEAFEE2730B9E700FDE30C /* Assets.xcassets in Resources */,
 				EAAEAFEC2730B9E400FDE30C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -476,7 +496,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAAEB08C273468DD00FDE30C /* UpdatePostViewModel.swift in Sources */,
 				EAAEB020273111C700FDE30C /* HomeViewController.swift in Sources */,
+				EAAEB08A273468D300FDE30C /* UpdatePostViewController.swift in Sources */,
 				EAAEB02A2731472200FDE30C /* BaseEndpoint.swift in Sources */,
 				EAAEB07927343ED300FDE30C /* NewPostViewController.swift in Sources */,
 				EAAEB01E27310B7800FDE30C /* SplashViewModel.swift in Sources */,
@@ -503,6 +525,7 @@
 				EAAEB07F27343F0D00FDE30C /* ModelNewPost.swift in Sources */,
 				EAAEB05F2733ACF000FDE30C /* DetailViewModel.swift in Sources */,
 				EAAEB03C2732438800FDE30C /* APIResult.swift in Sources */,
+				EAF4FD692734760500F32D9D /* ModelUpdatePost.swift in Sources */,
 				EAAEAFE52730B9E400FDE30C /* AppDelegate.swift in Sources */,
 				EAAEB0682733BFAC00FDE30C /* Date+Ext.swift in Sources */,
 				EAAEB0472732562D00FDE30C /* ModelSignIn.swift in Sources */,
@@ -517,6 +540,7 @@
 				EAAEB0352732415400FDE30C /* APISession.swift in Sources */,
 				EAAEB0402732531300FDE30C /* KeychainWrapper+Ext.swift in Sources */,
 				EAAEAFE72730B9E400FDE30C /* SceneDelegate.swift in Sources */,
+				EAAEB08E2734702F00FDE30C /* UpdatePostService.swift in Sources */,
 				EAAEB04B27325A7600FDE30C /* URLRequest+Ext.swift in Sources */,
 				EAAEB028273144B100FDE30C /* Auth.swift in Sources */,
 				EAAEB0812734579B00FDE30C /* ModelUser.swift in Sources */,
