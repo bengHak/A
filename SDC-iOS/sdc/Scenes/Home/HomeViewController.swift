@@ -65,6 +65,15 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - Helpers
+    func showLoginAlert(completion: @escaping () -> Void) {
+        let alert = UIAlertController(title: "로그인이 필요합니다", message: "로그인 후 이용해주세요", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "로그인", style: .default) { _ in
+            completion()
+        })
+        alert.addAction(UIAlertAction(title: "취소", style: .cancel))
+        present(alert, animated: true)
+    }
+
     private func fetch() {
         viewModel.fetchFeeds()
     }
@@ -106,11 +115,23 @@ extension HomeViewController {
         writeButton
             .rx
             .tap
-            .subscribe(onNext: { _ in
+            .subscribe(onNext: { [weak self] _ in
                 print("write")
-                // 로그인 했을 경우
+                guard let self = self else { return }
                 
-                // 로그인 안 했을 경우
+                if self.viewModel.dependency.isLogInNeeded {
+                    self.showLoginAlert() {
+                        DispatchQueue.main.async {
+                            let navVC = UINavigationController(rootViewController: SignInViewController())
+                            self.navigationController?.present(navVC, animated: true)
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        let navVC = UINavigationController(rootViewController: NewPostViewController())
+                        self.navigationController?.present(navVC, animated: true)
+                    }
+                }
             })
             .disposed(by: bag)
         
@@ -143,6 +164,7 @@ extension HomeViewController {
             .map { $0! }
             .bind(to: tableView.rx.items(cellIdentifier: HomeTableViewCell.identifier, cellType: HomeTableViewCell.self)) { index, post, cell in
                 cell.setData(model: post)
+                cell.selectionStyle = .none
                 UIView.performWithoutAnimation {
                     cell.layoutIfNeeded()
                 }
