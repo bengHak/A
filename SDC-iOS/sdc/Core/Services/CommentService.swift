@@ -13,6 +13,8 @@ protocol CommentService: BaseService {
     func getComments(postId: Int) -> Observable<APIResult<ModelCommentsResponse>>
     
     func writeComment(postId: Int, body: ModelWriteCommentRequest) -> Observable<APIResult<ModelWriteCommentResponse>>
+    
+    func deleteComment(postId: Int, commentId: Int) -> Observable<APIResult<ModelWriteCommentResponse>>
 }
 
 extension CommentService {
@@ -33,6 +35,17 @@ extension CommentService {
         let request = URLRequest.build(url: url,
                                        method: .post,
                                        body: body,
+                                       headers: tokenHeader)
+        
+        return apiSession.request(with: request)
+    }
+    
+    func deleteComment(postId: Int, commentId: Int) -> Observable<APIResult<ModelWriteCommentResponse>> {
+        let url = PostEndpoint.updateComment(postId: postId, commentId: commentId).url
+        
+        let request = URLRequest.build(url: url,
+                                       method: .delete,
+                                       body: [:],
                                        headers: tokenHeader)
         
         return apiSession.request(with: request)

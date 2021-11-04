@@ -24,6 +24,7 @@ struct ModelCommentsResponse: APIResponse {
 }
 
 struct ModelComment: Codable {
+    var commentId: Int?
     var userId: Int?
     var username: String? 
     var postId: Int?

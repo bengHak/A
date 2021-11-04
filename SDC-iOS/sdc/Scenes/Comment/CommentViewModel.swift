@@ -75,6 +75,20 @@ extension CommentViewModel: CommentService {
                 self.dependency.isWritingDone.accept(true)
             })
             .disposed(by: bag)
-        
+    }
+    
+    func removeComment(_ postId: Int, commentId: Int) {
+        deleteComment(postId: postId, commentId: commentId)
+            .subscribe(onNext: { [weak self] result in
+                guard let self = self else { return }
+                
+                guard let response = result.response else {
+                          print("🔴 delete comment failed")
+                          return
+                      }
+                
+                self.dependency.isWritingDone.accept(true)
+            })
+            .disposed(by: bag)
     }
 }

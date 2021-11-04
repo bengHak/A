@@ -63,6 +63,12 @@ class CommentViewController: UIViewController {
     
     
     // MARK: - Helper
+    func showDeleteAlert() {
+        let alert = UIAlertController(title: "삭제 권한이 없습니다", message: "삭제 권한이 없습니다", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+
     func fetch() {
         guard let postId = self.postId else { return }
         viewModel.fetchComments(postId)
@@ -135,6 +141,20 @@ extension CommentViewController {
                     cell.layoutIfNeeded()
                 }
             }
+            .disposed(by: bag)
+        
+        tableView.rx.itemDeleted
+            .subscribe(onNext: { [weak self] selected in
+                guard let self = self else { return }
+                let currentUserId: Int = UserDefaults.standard.integer(forKey: "userId")
+                let targetUserId: Int = self.viewModel.output.comments.value?[selected[1]].userId ?? 1
+                let commentId: Int = self.viewModel.output.comments.value?[selected[1]].commentId ?? 1
+                if currentUserId != targetUserId {
+                    self.showDeleteAlert()
+                } else {
+                    self.viewModel.removeComment(self.postId!, commentId: commentId)
+                }
+            })
             .disposed(by: bag)
         
         viewModel.output.comments
